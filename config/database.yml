@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  database: text_app_development
+test:
+  adapter: postgresql
+  database: text_app_test
