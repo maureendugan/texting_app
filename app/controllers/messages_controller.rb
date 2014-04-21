@@ -6,6 +6,10 @@ class MessagesController < ApplicationController
 
   def new
     @message = Message.new
+    if params[:contact_id] != nil
+      @contact = Contact.find(params[:contact_id])
+      @message[:to] = @contact.phone_number
+    end
   end
 
   def create

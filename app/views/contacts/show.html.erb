@@ -1,0 +1,4 @@
+<h2> Name: <%= @contact.name %></h2>
+<h2> Phone Number: <%= @contact.phone_number %></h2>
+
+<%= link_to "Send #{@contact.name} a message", new_contact_message_path(@contact) %>

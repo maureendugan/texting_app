@@ -1,3 +1,13 @@
 <h2>New contact</h2>
 
+<% if @contact.errors.any? %>
+  <p>Please fix the following errors</p>
+  <ul>
+    <% @contact.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
 <%= render 'form' %>
