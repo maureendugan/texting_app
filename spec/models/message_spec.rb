@@ -7,7 +7,12 @@ describe Message, vcr: true do
   end
   it 'does not save a message if it is invalid' do
     message = Message.new({ to:'', from: '5038289722', body: 'Hello this is a message'})
-    message.save
-    message.id.should be_false
+    message.save.should be_false
   end
+  it 'displays errors for invalid messages' do
+    message = Message.new({ to: '0716', from: '5038289722', body: 'Hello this is a message'})
+    message.save
+    message.errors.messages[:base].should eq ["The 'To' number 0716 is not a valid phone number."]
+  end
+
 end
