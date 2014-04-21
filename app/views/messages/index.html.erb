@@ -1,0 +1,7 @@
+<h2>All Messages</h2>
+
+<ul>
+  <% @messages.each do |m| %>
+    <li><%= link_to "#{m.id}", message_path(m) %></li>
+  <% end %>
+</ul>

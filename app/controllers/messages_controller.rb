@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 
   def index
-    @message = Message.all
+    @messages = Message.all
   end
 
   def new
@@ -12,9 +12,9 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     if @message.save
       flash[:notice] = "Your message has been sent"
-      redirect_to index
+      redirect_to messages_path
     else
-      render new
+      render 'new'
     end
   end
 
