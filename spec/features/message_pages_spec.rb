@@ -22,4 +22,10 @@ describe "Messages", vcr: true do
     page.should have_content "Please fix the following"
   end
 
+  it 'displays a message' do
+    message = FactoryGirl.create(:message)
+    visit message_path message
+    page.should have_content "#{message.body}"
+  end
+
 end

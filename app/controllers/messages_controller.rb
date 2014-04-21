@@ -18,6 +18,10 @@ class MessagesController < ApplicationController
     end
   end
 
+  def show
+    @message = Message.find(params[:id])
+  end
+
   private
   def message_params
     params.require(:message).permit(:to, :from, :body)
